@@ -1,3 +1,5 @@
+# Usage: /bin/python3 ./main.py
+
 from pytube import YouTube
 from pytube import Playlist
 from youtube_transcript_api import YouTubeTranscriptApi
@@ -6,7 +8,6 @@ from slugify import slugify
 import anthropic_bedrock
 from anthropic_bedrock import AnthropicBedrock
 import sys
-import json
 
 claude = AnthropicBedrock(
     aws_region="us-west-2"
@@ -60,11 +61,15 @@ def process_video(video_link):
     f.close()
 
 def main():
-    # video_link = "https://www.youtube.com/watch?v=up5t8Akof18"
-    p = Playlist('https://www.youtube.com/playlist?list=PL2yQDdvlhXf-5R7VtNr9P4nosA7DiDtM1') # Re: Invent 2023 breakout sessions
-    for url in p.video_urls[:1]:
-        print ("Processing: " + url + "\n")
-        process_video(url)
+    # Process single video
+    video_link = "https://www.youtube.com/watch?v=QIffkOyTf7I"
+    process_video(video_link)
+
+    # Process a playlist
+    # p = Playlist('https://www.youtube.com/playlist?list=PL2yQDdvlhXf-5R7VtNr9P4nosA7DiDtM1') # Re: Invent 2023 breakout sessions
+    # for url in p.video_urls[:1]:
+    #    print ("Processing: " + url + "\n")
+    #    process_video(url)
 
 if __name__ == '__main__':
     sys.exit(main())
