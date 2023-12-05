@@ -52,7 +52,7 @@ def process_video(video_link):
     question = "Please answer the following questions based on a transcript from a Youtube video: \n 1. What is the video about? Is the video a customer case showcase or a feature deep dive? \n 2. What is the customer's challenge? \n 3. What feature or solutions does the video introduce? \n 4. What is the benefit of the feature or solutions?"
 
     abstract = generate_abstract(subtitle, question)
-    f = open(slugify(title)+'abstract.txt', 'w')
+    f = open(slugify(title)+'-abstract.txt', 'w')
     f.write("Title: " + title + "\n\n")
     f.write("Link: " + video_link + "\n\n")
     f.write("Description: " + video.description + "\n\n")
