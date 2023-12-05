@@ -1,4 +1,4 @@
 pytube
 youtube_transcript_api
-slugify
+python-slugify
 anthropic_bedrock
